@@ -134,7 +134,7 @@ def run(config):
     assert len(rotation_path) == config['num_scenes']
     
     
-    depth_model = MarigoldPipeline.from_pretrained("prs-eth/marigold-v1-0", torch_dtype=torch.bfloat16).to(config["device"])
+    depth_model = MarigoldPipeline.from_pretrained("prs-eth/marigold-depth-v1-0", torch_dtype=torch.bfloat16).to(config["device"])
     depth_model.scheduler = EulerDiscreteScheduler.from_config(depth_model.scheduler.config)
     depth_model.scheduler = prepare_scheduler(depth_model.scheduler)
 
