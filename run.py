@@ -544,6 +544,10 @@ def home():
 
 @app.route('/index')
 def index():
+    return render_template('index_stream.html')
+
+@app.route('/index_test')
+def index():
     return render_template('index.html')
 
 def start_server(port):
