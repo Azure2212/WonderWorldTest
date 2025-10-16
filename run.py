@@ -531,6 +531,12 @@ def train_gaussian(gaussians: GaussianModel, scene: Scene, opt: GSParams, save_d
                 gaussians.optimizer.step()
                 gaussians.optimizer.zero_grad(set_to_none = True)
 
+from flask import send_from_directory
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
+
+
 def start_server(port):
     socketio.run(app, host='0.0.0.0', port=port)
 
