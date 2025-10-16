@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 from datetime import datetime
 import threading
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 
@@ -536,6 +536,15 @@ from flask import send_from_directory
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Welcome to WonderWorld!"
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
 
 def start_server(port):
     socketio.run(app, host='0.0.0.0', port=port)
