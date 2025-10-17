@@ -869,15 +869,15 @@ class MarigoldNormalsOutput(BaseOutput):
             latentheight \times latentwidth$.
     """
 
-    #prediction: Union[np.ndarray, torch.FloatTensor]
-    #visualization: Union[None, Image.Image, List[Image.Image]]
-    #uncertainty: Union[None, np.ndarray, torch.FloatTensor]
-    #latent: Union[None, torch.FloatTensor]
+    prediction: Union[np.ndarray, torch.FloatTensor]
+    visualization: Union[None, Image.Image, List[Image.Image]]
+    uncertainty: Union[None, np.ndarray, torch.FloatTensor]
+    latent: Union[None, torch.FloatTensor]
     
-    prediction: Union[np.ndarray, torch.FloatTensor, None] = None
-    visualization: Union[None, Image.Image, List[Image.Image]] = field(default_factory=list)
-    uncertainty: Union[None, np.ndarray, torch.FloatTensor] = None
-    latent: Union[None, torch.FloatTensor] = None
+    # prediction: Union[np.ndarray, torch.FloatTensor, None] = None
+    # visualization: Union[None, Image.Image, List[Image.Image]] = field(default_factory=list)
+    # uncertainty: Union[None, np.ndarray, torch.FloatTensor] = None
+    # latent: Union[None, torch.FloatTensor] = None
 
 
 class MarigoldNormalsPipeline(DiffusionPipeline):
