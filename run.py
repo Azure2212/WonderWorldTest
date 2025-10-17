@@ -672,11 +672,12 @@ if __name__ == "__main__":
         type=int,
         help="Port for the server",
     )
+    print('line 675')
     args = parser.parse_args()
     base_config = OmegaConf.load(args.base_config)
     example_config = OmegaConf.load(args.example_config)
     config = OmegaConf.merge(base_config, example_config)
-
+    print('line 680')
     # Start the server on a separate thread
     server_thread = threading.Thread(target=start_server, args=(args.port,))
     server_thread.start()
@@ -684,7 +685,7 @@ if __name__ == "__main__":
     # Start the rendering loop on the main thread
     render_thread = threading.Thread(target=render_current_scene)
     render_thread.start()
-
+    print('line 688')
     POSTMORTEM = config['debug']
     if POSTMORTEM:
         try:

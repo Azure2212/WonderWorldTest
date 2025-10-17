@@ -18,7 +18,7 @@
 # --------------------------------------------------------------------------
 
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple, Union
 import time
 from .marigold_process import MarigoldImageProcessor
@@ -869,10 +869,15 @@ class MarigoldNormalsOutput(BaseOutput):
             latentheight \times latentwidth$.
     """
 
-    prediction: Union[np.ndarray, torch.FloatTensor]
-    visualization: Union[None, Image.Image, List[Image.Image]]
-    uncertainty: Union[None, np.ndarray, torch.FloatTensor]
-    latent: Union[None, torch.FloatTensor]
+    #prediction: Union[np.ndarray, torch.FloatTensor]
+    #visualization: Union[None, Image.Image, List[Image.Image]]
+    #uncertainty: Union[None, np.ndarray, torch.FloatTensor]
+    #latent: Union[None, torch.FloatTensor]
+    
+    prediction: Union[np.ndarray, torch.FloatTensor, None] = None
+    visualization: Union[None, Image.Image, List[Image.Image]] = field(default_factory=list)
+    uncertainty: Union[None, np.ndarray, torch.FloatTensor] = None
+    latent: Union[None, torch.FloatTensor] = None
 
 
 class MarigoldNormalsPipeline(DiffusionPipeline):
